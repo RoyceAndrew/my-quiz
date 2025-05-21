@@ -1,0 +1,10 @@
+@import "tailwindcss";
+
+.title {
+  font-family: "Playwrite DK Loopet", cursive !important;
+  font-weight: 500;
+} 
+
+ *:not(.title) {
+    font-family: "Noto Sans", sans-serif; 
+}
