@@ -12,6 +12,7 @@ export const Home = () => {
     const score = useQuiz((state) => state.score);
     const correct = useQuiz((state) => state.correct);
     const time = useQuiz((state) => state.time);
+    const setReset = useQuiz((state) => state.setReset);
     const user = useUser((state) => state.user);
     const logout = useUser((state) => state.logout);
     const updateUser = useUser((state) => state.updateUser);
@@ -57,6 +58,7 @@ export const Home = () => {
     
     const handleLogout = async () => {
         await axios.put(`https://682b47b7d29df7a95be2cde1.mockapi.io/user/${user?.id}`, {quiz: {answered: answered, score: score, correct: correct, time: time}}); 
+        setReset();
         logout();
     }
 
