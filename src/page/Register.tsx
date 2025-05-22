@@ -62,6 +62,7 @@ export const Register = () => {
       username: yup
         .string()
         .min(3, "Username must be at least 3 characters")
+        .max(10, "Username must be at most 10 characters")
         .required("Username is required"),
       password: yup
         .string()

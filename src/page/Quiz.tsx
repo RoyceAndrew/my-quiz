@@ -1,7 +1,7 @@
 import { useEffect, useState, useRef } from "react";
 import axios from "axios";
 import { Border } from "../component/Border";
-import { BeatLoader } from "react-spinners";
+import { PacmanLoader } from "react-spinners";
 import useUser from "../hook/useUser";
 import { useQuiz } from "../hook/useQuiz";
 import { useNavigate } from "react-router";
@@ -66,6 +66,9 @@ export const Quiz = () => {
         setTimeout(() => fetchData(), 500);
       }
     };
+    if (answered === 10) {
+      return;
+    }
     if (fetchApi.current) return;
     fetchData();
     fetchApi.current = true;
@@ -161,7 +164,7 @@ const handleHome = () => {
   }, [answered]);
 
   if (loading) {
-    return <BeatLoader color="#36d7b7" />;
+    return <PacmanLoader color="#36d7b7" />;
   }
 
   if (answered === 10) {
