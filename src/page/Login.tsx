@@ -72,7 +72,7 @@ export const Login = () => {
         <TextField
           required
           name="email"
-          className="w-[400px]"
+          className="w-[90%] max-w-[400px] md:w-[400px]"
           onChange={formik.handleChange}
           value={formik.values.email}
           error={
@@ -86,13 +86,13 @@ export const Login = () => {
           label="Email"
           variant="outlined"
         />
-        <p className="text-red-500 mb-4">
+        <p className="text-red-500 w-[90%] md:w-[400px] max-w-[400px] text-start mb-4">
           {(formik.touched.email && formik.errors.email) || emailError}
         </p>
         <TextField
           required
           name="password"
-          className="w-[400px]"
+          className="w-[90%] max-w-[400px] md:w-[400px]"
           onChange={formik.handleChange}
           value={formik.values.password}
           error={
@@ -107,7 +107,7 @@ export const Login = () => {
           label="Password"
           variant="outlined"
         />
-        <p className="text-red-500 mb-4">
+        <p className="text-red-500 w-[90%] md:w-[400px] max-w-[400px] text-start mb-4">
           {(formik.touched.password && formik.errors.password) || emailError}
         </p>
         <div className="flex justify-center w-full">

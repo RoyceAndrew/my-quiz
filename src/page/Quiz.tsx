@@ -52,6 +52,9 @@ export const Quiz = () => {
           setLoading(false);
           return;
         }
+        if (time <= 0 || !time) {
+          setReset();
+        };
         const response = await axios.get(
           "https://opentdb.com/api.php?amount=1&category=9&difficulty=easy&type=multiple"
         );
@@ -80,6 +83,9 @@ export const Quiz = () => {
   }, [fetchApi.current]);
 
   useEffect(() => {
+    if (answered === 10) {
+      return
+    }
     const interval = setInterval(() => {
       setTime();
     }, 1000);

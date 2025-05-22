@@ -79,11 +79,11 @@ export const Register = () => {
   return (
     <Border>
       <h1 className={`text-4xl title my-3 mb-7`}>Register</h1>
-      <form onSubmit={formik.handleSubmit}>
+      <form className="flex flex-col w-full items-center" onSubmit={formik.handleSubmit}>
         <TextField
           required
           name="email"
-          className="w-[400px]"
+          className="w-[90%] max-w-[400px] md:w-[400px]"
           onChange={formik.handleChange}
           value={formik.values.email}
           error={
@@ -95,13 +95,13 @@ export const Register = () => {
           label="Email"
           variant="outlined"
         />
-        <p className="text-red-500 mb-4">
+        <p className="text-red-500 w-[90%] md:w-[400px] max-w-[400px] text-start mb-4">
           {(formik.touched.email && formik.errors.email) || emailError}
         </p>
         <TextField
           required
           name="username"
-          className="w-[400px]"
+          className="w-[90%] max-w-[400px] md:w-[400px]"
           onChange={formik.handleChange}
           value={formik.values.username}
           error={
@@ -114,13 +114,13 @@ export const Register = () => {
           label="Username"
           variant="outlined"
         />
-        <p className="text-red-500 mb-4">
+        <p className="text-red-500 max-w-[400px] md:w-[400px] w-[90%] text-start mb-4">
           {(formik.touched.username && formik.errors.username) || usernameError}
         </p>
         <TextField
           required
           name="password"
-          className="w-[400px]"
+          className="w-[90%] max-w-[400px] md:w-[400px]"
           onChange={formik.handleChange}
           value={formik.values.password}
           error={formik.touched.password && Boolean(formik.errors.password)}
@@ -130,13 +130,13 @@ export const Register = () => {
           label="Password"
           variant="outlined"
         />
-        <p className="text-red-500 mb-4">
+        <p className="text-red-500 max-w-[400px] md:w-[400px] w-[90%] text-start mb-4">
           {formik.touched.password && formik.errors.password}
         </p>
         <TextField
           required
           name="confirmPassword"
-          className="w-[400px]"
+          className="w-[90%] max-w-[400px] md:w-[400px]"
           onChange={formik.handleChange}
           value={formik.values.confirmPassword}
           error={
@@ -149,7 +149,7 @@ export const Register = () => {
           label="Confirm Password"
           variant="outlined"
         />
-        <p className="text-red-500 mb-4">
+        <p className="text-red-500 max-w-[400px] md:w-[400px] w-[90%] text-start mb-4">
           {formik.touched.confirmPassword && formik.errors.confirmPassword}
         </p>
         <div className="flex justify-center w-full">
