@@ -15,6 +15,8 @@ interface User {
     correct: number;
     score: number;
     time: number;
+    wrong: number;
+    total: number;
   };
 }
 

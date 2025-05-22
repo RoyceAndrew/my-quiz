@@ -11,6 +11,11 @@ export const Quiz = () => {
   const navigate = useNavigate();
   const user = useUser((state) => state.user);
   const fetchApi = useRef<boolean>(false);
+  const wrong = useQuiz((state) => state.wrong);
+  const setWrong = useQuiz((state) => state.setWrong);
+  const correct = useQuiz((state) => state.correct);
+  const total = useQuiz((state) => state.total);
+  const setTotal = useQuiz((state) => state.setAnswer);
   const answered = useQuiz((state) => state.answered);
   const setAnswered = useQuiz((state) => state.setAnswered);
   const setCorrect = useQuiz((state) => state.setCorrect);
@@ -127,6 +132,7 @@ export const Quiz = () => {
       incorrect: answer,
       showAnswer: true,
     });
+    setWrong();
     if (answered === 9) {
       setTimeout(() => setAnswered(), 3000);
     } else if (answered < 9) {
@@ -159,9 +165,15 @@ const handleHome = () => {
   useEffect(() => {
     if (answered === 10) {
       setScore();
+      setTotal();
       handleSetFeedback(score);
     }
   }, [answered]);
+
+  function handleAgain() {
+    setReset();
+    window.location.reload();
+  }
 
   if (loading) {
     return <PacmanLoader color="#36d7b7" />;
@@ -172,10 +184,15 @@ const handleHome = () => {
       <Border>
         <h1 className="title text-3xl mb-4">Complete</h1>
         <p className="text-2xl">Score: {score}</p>
+        <div>
+          <p>Answered: {total}</p>
+          <p>Correct: {correct}</p>
+          <p>Wrong: {wrong}</p>
+        </div>
         <p className="text-2xl mb-4">{feedback}</p>
         <div className="gap-4 flex">
         <button
-          onClick={() => setReset()}
+          onClick={handleAgain}
           className="cursor-pointer bg-white hover:bg-blue-500 text-blue-500 duration-300 ease-in transition-all font-bold hover:text-white ring-2 ring-blue-500 py-2 px-4 rounded-lg"
         >
           Play Again

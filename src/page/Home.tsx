@@ -31,6 +31,8 @@ export const Home = () => {
     useEffect(() => {
         if (user?.quiz.answered && user?.quiz.answered > 0) {
             setAll({
+                wrong: user?.quiz.wrong,
+                total: user?.quiz.total,
                 answered: user?.quiz.answered,
                 correct: user?.quiz.correct,
                 score: user?.quiz.score,
@@ -78,7 +80,7 @@ export const Home = () => {
                 <div onClick={(e) => e.stopPropagation()} className="bg-white gap-0.5  word-break rounded-xl p-5 flex flex-col items-start justify-center md:w-[500px] md:h-fit h-full w-full shadow-[0px_0px_10px_0px] shadow-blue-400">
                     <i onClick={handleExit} className="bi bi-x-lg md:static absolute rounded-full w-[40px] h-[40px] bg-gray-200 hover:shadow-[0px_0px_10px_0px] hover:shadow-red-400 hover:bg-red-400 hover:text-white hover:scale-110 transition-all ease-in duration-300 text-2xl text-red-400 ring-1 ring-red-400 md:top-[-5%] justify-center items-center flex top-5 right-5 ml-[94%] md:mb-[-8%]  cursor-pointer"></i>
                     <h2 className="text-2xl w-full text-center title">Rules</h2>
-                    <p>1.⏳ You have a total of 10 minutes to complete the quiz.</p>
+                    <p>1.⏳ You have a total of 100 seconds to complete the quiz.</p>
                     <p>2.❌ You cannot go back to previous questions once answered.</p>
                     <p>3.💾 Your progress will be saved automatically, even if you close or refresh the browser, or if your device suddenly shuts down.</p>
                     <p>4.🔁 When you return, your previous answers and remaining time will be restored.</p>
